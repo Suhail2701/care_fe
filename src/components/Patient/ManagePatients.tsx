@@ -753,7 +753,7 @@ export const PatientManager = () => {
 
   if (isLoading || !data) {
     managePatients = (
-      <div className="col-span-3 w-full py-8 text-center">
+      <div className="flex w-full justify-center">
         <Loading />
       </div>
     );
