@@ -4,6 +4,7 @@ const Loading = () => {
   const isPatientsPage = window.location.pathname === "/patients";
   const isAssetsPage = window.location.pathname === "/assets";
   const isUserPage = window.location.pathname === "/users";
+
   const minHeight =
     isPatientsPage || isAssetsPage || isUserPage ? "500px" : "800px";
 
