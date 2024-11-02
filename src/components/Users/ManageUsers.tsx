@@ -466,7 +466,7 @@ export default function ManageUsers() {
     }));
 
   if (userListLoading || districtDataLoading || !userListData?.results) {
-    manageUsers = <Loading />;
+    manageUsers = <Loading minHeightClass={"min-h-[600px]"} />;
   } else if (userListData?.results.length) {
     manageUsers = (
       <div>
