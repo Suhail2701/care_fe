@@ -114,7 +114,7 @@ export const FacilityList = () => {
   }
 
   if (isLoading || !permittedData) {
-    manageFacilities = <Loading minHeightClass={"min-h-[600px]"} />;
+    manageFacilities = <Loading />;
   } else if (permittedData.results && permittedData.results.length) {
     manageFacilities = (
       <>

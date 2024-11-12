@@ -757,7 +757,7 @@ export const PatientManager = () => {
   if (isLoading || !data) {
     managePatients = (
       <div className="col-span-3 w-full py-8 text-center">
-        <Loading minHeightClass={"min-h-[500px]"} />
+        <Loading />
       </div>
     );
   } else if (data?.count) {

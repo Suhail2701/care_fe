@@ -290,7 +290,7 @@ export default function SampleViewAdmin() {
   if (isLoading || !sampeleData) {
     manageSamples = (
       <div className="flex w-full justify-center">
-        <Loading minHeightClass={"min-h-[600px]"} />
+        <Loading />
       </div>
     );
   } else if (sampeleData?.count) {

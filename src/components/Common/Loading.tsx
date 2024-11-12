@@ -1,12 +1,40 @@
-const img = "/images/care_logo_gray.svg";
+import { useEffect, useRef, useState } from "react";
 
-const Loading = ({ minHeightClass = "min-h-screen" }) => {
+const Loading = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [offsetTop, setOffsetTop] = useState(0);
+
+  useEffect(() => {
+    const calculateOffset = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setOffsetTop(rect.top);
+      }
+    };
+
+    calculateOffset();
+
+    window.addEventListener("resize", calculateOffset);
+    window.addEventListener("scroll", calculateOffset, true);
+
+    return () => {
+      window.removeEventListener("resize", calculateOffset);
+      window.removeEventListener("scroll", calculateOffset, true);
+    };
+  }, []);
+
   return (
     <div
-      className={`flex w-full items-center justify-center ${minHeightClass}`}
+      ref={containerRef}
+      className="flex w-full items-center justify-center transition-[height]"
+      style={{ height: `calc(100vh - ${offsetTop}px)` }}
     >
       <div className="w-2/12">
-        <img src={img} className="App-logo" alt="logo" />
+        <img
+          src="/images/care_logo_gray.svg"
+          className="App-logo"
+          alt="loading"
+        />
       </div>
     </div>
   );

@@ -213,7 +213,7 @@ const AssetsList = () => {
   if (loading) {
     manageAssets = (
       <div className="col-span-3 w-full py-8 text-center">
-        <Loading minHeightClass={"min-h-[500px]"} />
+        <Loading />
       </div>
     );
   } else if (assetsExist) {
